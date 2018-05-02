@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        
+
+        function getTodo(id){
+            var obj = {id:id, todo:"todo "+id};
+            var p = new Promise(function(resolve,reject){                
+                setTimeout(function(){
+                    if(id>0){
+                        resolve(obj);
+                    }
+                    else{
+                        reject({error:"erreur id : "+id});
+                    }
+                
+                },1000);
+            });
+
+
+            return p;
+        }
+    
+        var p_todo = getTodo(1);
+        p_todo
+            .then(function(todo){
+                console.log(todo);
+                return getTodo(todo.id+1)
+            },function(error){
+                console.error(error);
+            })
+            .then(function(todo){
+                console.log(todo);
+                return getTodo(todo.id+1)
+            });
+        
+    
+            var p_todo_1 = getTodo(20);
+            var p_todo_2 = getTodo(10);
+            var p_todo_3 = getTodo(30);
+
+        Promise.all([p_todo_1,p_todo_2,p_todo_3]).then(function(arr){
+            console.log(arr);
+        })
+
+    
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

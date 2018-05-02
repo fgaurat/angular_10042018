@@ -1,0 +1,4 @@
+#Thu Apr 12 10:18:11 CEST 2018
+base.0=/Users/fgaurat/local_dev/formations/angular_10042018/heroesMob/platforms/android/app/build/intermediates/transforms/dexMerger/debug/0
+renamed.0=classes.dex
+file.0=/Users/fgaurat/local_dev/formations/angular_10042018/heroesMob/platforms/android/app/build/intermediates/transforms/dexMerger/debug/0/classes.dex
